@@ -17,39 +17,14 @@ public class App {
 
         try (ServerSocket serverSocket = new ServerSocket(porta)) {
             IO.println("aguardando por conexões...");
-            Socket clientSocket = serverSocket.accept();
 
-            var enderecoCliente = clientSocket.getInetAddress().getHostAddress();
-            var portaCliente = clientSocket.getPort();
-
-            System.out.printf("Cliente conectado: %s:%d%n", enderecoCliente, portaCliente);
-
-            // Estabelecimento de fluxos de entrada e saída
-            var reader = new BufferedReader(
-                    new InputStreamReader(clientSocket.getInputStream(), StandardCharsets.UTF_8)
-            );
-            var writer = new BufferedWriter(
-                    new OutputStreamWriter(clientSocket.getOutputStream(), StandardCharsets.UTF_8)
-            );
-
-            // Protocolo de comunicação
-            String mensagem = "";
-
-            do{
-                mensagem = reader.readLine(); //Servidor lê a primeira mensagem encaminhada pelo cliente
-                System.out.printf("[%s:%d] -> %s%n", enderecoCliente, portaCliente, mensagem);
-                writer.write(mensagem.toUpperCase());
-                writer.newLine();
-                writer.flush();
-            }while (!mensagem.equalsIgnoreCase("sair"));
-
-
-            IO.println("Servidor encerrado!");
-            reader.close();
-            writer.close();
+            while (!Thread.currentThread().isInterrupted()) {
+                Socket clientSocket = serverSocket.accept();
+                Thread.ofVirtual().start(new AtenderClientes(clientSocket));
+            }
 
         }catch (Exception e){
-            System.err.println("Erro:" + e);
+            System.err.println("Error:" + e);
         }
 
     }

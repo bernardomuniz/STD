@@ -53,3 +53,7 @@ tasks.withType<Test>().configureEach {
 tasks.withType<JavaExec>().configureEach {
     jvmArgs("--enable-preview")
 }
+
+tasks.run.configure {
+    standardInput = System.`in`
+     }
