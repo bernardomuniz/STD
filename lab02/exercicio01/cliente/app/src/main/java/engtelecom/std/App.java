@@ -25,13 +25,18 @@ public class App {
         ){
             IO.println("Conectado no servidor...");
             // Protocolo de comununicação
-            writer.write("Olá, eu sou o cliente");
-            writer.newLine();
-            writer.flush();
+            String mensagem = "";
+            String resposta = "";
 
-            String resposta = reader.readLine();
-
-            System.out.printf("resposta do servidor: %s%n", resposta);
+            while (true) {
+                mensagem = IO.readln("Escreva sua mensagem: ");
+                if (mensagem.equalsIgnoreCase("sair")){break;}
+                writer.write(mensagem);
+                writer.newLine();
+                writer.flush();
+                resposta = reader.readLine();
+                System.out.printf("resposta do servidor: %s%n", resposta);
+            }
 
             IO.println("Cliente finalizado!");
 

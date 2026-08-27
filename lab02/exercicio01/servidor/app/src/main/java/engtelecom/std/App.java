@@ -33,13 +33,16 @@ public class App {
             );
 
             // Protocolo de comunicação
-            String mensagem = reader.readLine(); //Servidor lê a primeira mensagem encaminhada pelo cliente
+            String mensagem = "";
 
-            System.out.printf("[%s:%d] -> %s%n", enderecoCliente, portaCliente, mensagem);
+            do{
+                mensagem = reader.readLine(); //Servidor lê a primeira mensagem encaminhada pelo cliente
+                System.out.printf("[%s:%d] -> %s%n", enderecoCliente, portaCliente, mensagem);
+                writer.write(mensagem.toUpperCase());
+                writer.newLine();
+                writer.flush();
+            }while (!mensagem.equalsIgnoreCase("sair"));
 
-            writer.write(mensagem.toUpperCase());
-            writer.newLine();
-            writer.flush();
 
             IO.println("Servidor encerrado!");
             reader.close();
