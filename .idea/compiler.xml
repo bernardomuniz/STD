@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="servidor.app" options="--enable-preview" />
+      <module name="servidor.app.main" options="--enable-preview" />
+      <module name="servidor.app.test" options="--enable-preview" />
+    </option>
+  </component>
+</project>
