@@ -1,0 +1,95 @@
+Serviços de nomes
+
+- Lidar com nomes para referenciar objetos é muito mais fácil do que números
+- Em STD, os nomes são usados para referenciar computadores, serviços, objetos remotos, arquivos e usuários
+
+Definições:
+- Nome: usado para identificar uma entidade de forma compreensível para humanos (uma mesma máquina pode ter vários nomes, desde de que diferentes máquinas aponte para uma única)
+- Endereço: indica a localização de uma entidade em um sistema ou rede (ex: endereço IP)
+- Identificador: nome especial que identifica de forma única uma entidade dentro de um domínio
+
+Associação:
+- Associação (bind): vincula o nome a um endereço
+- Resolução (lookup): obtém o endereço ou identificador a partir de um nome
+- Ex: servidor.ifsc.edu.br -> 172.16.18.1 (IP) -> 43:23:28:7a:32 (MAC)
+
+Identificador
+- Está associado a somente uma única entidade
+- Cada entidade pode ter somente uma única identidade
+- Um identificador não pode ser reutilizado para identificar outra identidade
+- Um número de telefone não pode ser considerado um identificador, pois pode estar associado a outra pessoa e uma pessoa pode ter mais de um número de telefone
+
+URI - Uniform Resource Identifier
+- Identifica um recurso de forma única, podendo ser um nome ou endereço
+- Ex: file://home/professor/std/aula.txt
+
+URL - Uniform Resource Locator
+- Inclui informações sobre o protocolo a ser utilizado para acessar o recurso (HTTP/HTTPS ou FTP) e o caminho para acessálo
+- Ex: http://www.sj.ifsc.edu.br 
+
+URN - Uniforme Resource Name
+- Identifica  de forma única um recurso dentro de um determinado espaço de nomes, sem indicar sua localização
+- Ex: urn:isbn:978-8-57-605124 (identificador único de um livro)
+
+Formato da URI:
+scheme://host:port/path?queryString#fragment
+- scheme: HTTP. HTTPS, FTP
+- host: nome ou endereço IP
+- port: porta de conexão do serviço
+- path: segmentos de texto determinados por /
+- queryString: lista de parâmetros (nomes = valor) delimitador por &
+- fragment: ponto particular dentro de um documento (clicar em um ponto da página e ir para outra parte da mesma página ao clicar em um fragmento)
+
+Porque usar nomes ao invés de endereços?
+- Manutenção para caso o endereço IP do servidor mudar e nas máquinas clientes estiverem mencionando o endereço IP do servidor ao invés de um domínio
+- Terá que mudar no servidor e nas máquinas clientes
+- Na maior parte das vezes quando uma mesma máquina precisa ficar resolvendo um endereço IP, é criado um cache e não é necessário ter o atraso para resolução dos nomes
+
+Serviços de nomes:
+- Sistema que gerencia a associação entre nomes e entidades, permitindo que usuários usem nomes ao invés de endereços IPs para acessar recursos (DNS, JNDI e etc)
+
+Espaço de nomes:
+- Conjunto de todos os nomes possíveis dentro de um sistema ou domínio de regras e que provê regras e estruturas que os nomes devem seguir
+- Unix: /nome/professor/std/aula.txt
+- www.sj.ifsc.edu.br
+
+Âmbito de um nome:
+- Define a extensão ou o alcance dentro do qual o nome é válido e pode ser resolvido para referenciar uma entidade específica
+- Local: na minha própria máquina eu posso criar a seguinte estrutura de pasta e essa mesma estrutura pode ser a mesma em outra máquina: /nome/bernardo/docs/main.java
+- Global: só existe um único endereço de domínio para um site na internet e ele pode ser acessado de qualquer local: www.sj.ifsc.edu.br
+
+Unicidade de um nome:
+- Garante que só haja um nome que referencie uma entidade
+- Local: fácil de gerenciar, pois o usuário mesmo que define se dentro do mesmo diretório existe um arquivo com mesmo nome
+- Global: difícil de gerenciar, se devide em estratégia centralizada
+
+- Estratégia centralizada:
+- Ponto único de falha: se o servidor central falhar, todo sistema cai
+- Limitação de escabilidade: chega a um ponto em que o servidor não suporta realizar a consulta a todos os nomes do mundo por conta da quantidade de consultas e requisições
+- Problemas de consistência: diferentes admins tentando alterar a mesma linha de código ou recurso
+
+- Estratégia de espaço de nomes vastos:
+- Criar  um conjunto de nomes tão grande de possíveis nomes que a probabilidade de colisão é extremamente baixa conforme os usuários vão escolhendo
+- Não realiza a checagem para verificar se um nome que foi escolhido já existe, então existe um probabilidade baixa de escolher o mesmo nome e gerar colisões e ambiguidades
+- São utilizados UUIDs (Universally Unique Identifiers) que são números de 128 bits para geração de nomes em STD
+- UUID V4 usa 122 bits aleatórios e 6 bits fixos (4 para versão e 2 para variante). Usado para identificação de IDs publicos, tokens de acesso e etc pois não revelam data ou ordem de criação
+- UUID V7 usa os primeiros 48 bits para timestamp Unix e 6 bits fixos (4 para versão e 2 para variante). Não adequado para IDs publicos pois expoe o momento aproximado da criação do registro.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
