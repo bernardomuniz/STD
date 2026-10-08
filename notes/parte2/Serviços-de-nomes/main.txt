@@ -1,4 +1,4 @@
-Serviços de nomes
+Serviços de nomes - Parte 1 | Aula 06/08/2026
 
 - Lidar com nomes para referenciar objetos é muito mais fácil do que números
 - Em STD, os nomes são usados para referenciar computadores, serviços, objetos remotos, arquivos e usuários
@@ -61,7 +61,7 @@ Espaço de nomes:
 Unicidade de um nome:
 - Garante que só haja um nome que referencie uma entidade
 - Local: fácil de gerenciar, pois o usuário mesmo que define se dentro do mesmo diretório existe um arquivo com mesmo nome
-- Global: difícil de gerenciar, se devide em estratégia centralizada
+- Global: difícil de gerenciar, se devide em estratégia centralizada, nomes vastos e hierárquica
 
 - Estratégia centralizada:
 - Ponto único de falha: se o servidor central falhar, todo sistema cai
@@ -75,21 +75,11 @@ Unicidade de um nome:
 - UUID V4 usa 122 bits aleatórios e 6 bits fixos (4 para versão e 2 para variante). Usado para identificação de IDs publicos, tokens de acesso e etc pois não revelam data ou ordem de criação
 - UUID V7 usa os primeiros 48 bits para timestamp Unix e 6 bits fixos (4 para versão e 2 para variante). Não adequado para IDs publicos pois expoe o momento aproximado da criação do registro.
 
+Serviços de nomes - Parte 2 | Aula 08/06/2026
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Estratégia Hierárquica
+- Endereços MAC (3 bytes de identificação do fabricante e os outros 3 para identificação do dispositivo). O fabricante garante a unicidade dos identificadores dos seus dispositivos dentro do seu próprio
+parque de dispositivos.
+- DNS: domínios .br (primeiro nível), .edu (segundo nível) e etc
+- Resolução recursiva x resulução iterativa (QUESTÃO DA PROVA)
+- mDNS: resolução de nomes em redes locais, para nomear dispositivos com domínio .local sem a utilzação de um servidor DNS centralizado
