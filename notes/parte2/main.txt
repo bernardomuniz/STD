@@ -1,0 +1,21 @@
+Serviços e Arquiteturas - Aula 15/09/2026 | Parte 1
+
+Serviços Web
+- Localizado por meio de uma URL e baseado em HTTP/HTTPS
+- Web server: qualquer aplicativo que implementa a RFC do HTTP
+- Web service: aplicação que permite a integração de outros sistemas por meio de uma interface padronizada - Fica somente com representação textual
+- Representação binária: XDR, serialização de objetos em java
+- Representação textual: XML e JSON
+
+
+
+- Esquema: documento que define o tipo de cada variável (string, inteiro, double e etc)
+- JSON não tem esquema, XML tem o esquema XSD para definir o tipo de cada variável
+
+
+Rest:
+- Tudo que pode ser acessado na web é um recurso e esses recursos só podem ser acessados via métodos http
+- Cada nova requisição traz novas informações
+- Rest usa HTTP como parte de toda lógica de implementação
+- As URIs em REST seguem uma estrutura lógica e hierárquica, pormitindo acessar os recursos de formwa organizada
+- Ações HTTP: GET (buscar dado), POST (criar novo recurso), PUT (atualizar recurso que já existe), DELETE (deletar recurso)
