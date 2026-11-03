@@ -1,0 +1,6 @@
+Sincronização de relógios - 3/11/2026 | Parte 1
+
+Sistema centralizado - todas as partes do sistema usam a mesma referência de tempo
+Sistema distribuído - cada computador usa seu próprio relógio.
+
+Relógios de computadores não são tão precisos e tendem a ficar atrasados em relação ao horário oficial
