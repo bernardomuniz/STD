@@ -1,6 +1,16 @@
-Sincronização de relógios - 3/11/2026 | Parte 1
-
+Sincronização de relógios - 3/11/2026
 Sistema centralizado - todas as partes do sistema usam a mesma referência de tempo
 Sistema distribuído - cada computador usa seu próprio relógio.
 
 Relógios de computadores não são tão precisos e tendem a ficar atrasados em relação ao horário oficial
+
+Relógios físicos não são sincronizados perfeitamentes, sempre haverá alguma atraso, mesmo que seja de milisegundos. Por isso não são ideais.
+
+Sincronização de relógios lógicos- 5/11/2026
+Banco de dados transacional: garente integridade dos dados e consistencia das operações
+ACID (atomicidade, consistencia, isolamento, durabilidade)
+Pedidos concorrentes de leitura não afetam a consistencia 
+Pedidos concorrentes de escrita podem ser resolvidos com filas 
+
+Servem para ordenar eventos em sistemas distribuídos 
+Não mede horas, medem a precedência: qual evento  foi executado antes que o outro
